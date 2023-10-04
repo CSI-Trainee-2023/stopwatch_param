@@ -1,0 +1,94 @@
+*{
+    margin :0;
+    padding: 0px;
+    align-items: center;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Times New Roman', Times, serif;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: medium;
+    margin-top: 130px;
+}
+.outer_rect{
+    width: 870px;
+    height: 250px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner_rect{
+    height: 230px;
+    width: 850px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color:#FB8604;
+    border-style: solid;
+}
+#button-click{
+    width:870px;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bolder;
+}
+.button{
+    height: 87px;
+    width: 87px;
+    background-color:#FB8604;;
+    color: black;
+    border: 2px #FB8604;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+}
+.st{
+    color: black;
+    font-size: 43px;
+    font-weight: bolder;
+}
+.hours{
+    font-size: 106px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.hour{
+    font-size: 75px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FB8604;
+}
+.minutes{
+    font-size: 106px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.minute{
+    font-size: 75px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FB8604;
+}
+.seconds{
+    font-size: 106px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.second{
+    font-size: 75px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FB8604;
+}
+.millisecs{
+    font-size: 106px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.millisec{
+    font-size: 75px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FB8604;
+}
