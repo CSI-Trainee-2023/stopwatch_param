@@ -8,7 +8,7 @@
 .watch{
     justify-content: center;
     align-items: center;
-    margin-left: 123px;
+    margin-left: 63px;
 }
 body{
     font-family:'Times New Roman', Times, serif;
@@ -130,7 +130,7 @@ body{
     padding: 10px 10px;
     left: 50%;
     transform: translate(-48%);
-    background-color: rgba(255,255,255,0.6);
+    background-color: wheat;
     border: 1px solid #FB8604;
     border-radius: 50px;
     font-family: 'Times New Roman', Times, serif;
@@ -151,4 +151,20 @@ body{
 }
 .hide{
     visibility: hidden;
+}
+.animation{
+    background: linear-gradient(-45deg, red, blue,#FF00FF,green,#00FF00, purple);
+    background-size: 400% 400%;
+    animation: gradient 9s ease infinite;
+}
+@keyframes gradient{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }

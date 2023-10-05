@@ -12,13 +12,13 @@
             <div class="outer_rect">
                 <div class="inner_rect">       
                     <span class="st hour">00</span>   
-                    <span class="st hours">h&nbsp;</span>
-                    <span class="st minute">&nbsp;00</span>   
-                    <span class="st minutes">m&nbsp;</span>
-                    <span class="st sec">&nbsp;00</span> 
+                    <span class="st hours">h&nbsp; </span>
+                    <span class="st minute">00</span>   
+                    <span class="st minutes">m&nbsp; </span>
+                    <span class="st sec">00</span> 
                     <span class="st seconds">s&nbsp;</span> 
                     <span class="st msec">&nbsp;00</span>  
-                    <span class="st millisec">ms&nbsp;</span> 
+                    <span class="st millisec">ms</span> 
                 </div>
             </div>
             <div id="button-click">
@@ -36,10 +36,12 @@
         const playbutton=document.getElementsByClassName("play")[0];
         const lapbutton=document.getElementsByClassName("lap")[0];
         const resetbutton=document.getElementsByClassName("reset")[0];
+        const clearbutton=document.getElementsByClassName("lap-clear-button")[0];
         const mins=document.getElementsByClassName("minute")[0];
         const second=document.getElementsByClassName("sec")[0];
         const millisecond=document.getElementsByClassName("msec")[0];
         const laps=document.getElementsByClassName("laps")[0];
+        const bg=document.getElementsByClassName("outer_rect")[0];
         let isplay=false;
         let seccnt =0;
         let sec;
@@ -47,6 +49,7 @@
         let msecond;
         let min;
         let mntcnt=0;
+        let li=0;
         let isreset=false;
         const togglebutton= () =>{
             lapbutton.classList.remove("hide")
@@ -56,6 +59,7 @@
             if(!isplay && !isreset)
             {
                 playbutton.innerHTML="Pause";
+                bg.classList.add("animation");
                 min=setInterval(() => {
                 mins.innerHTML=(++mntcnt);
             },60*1000);
@@ -81,6 +85,7 @@
                 clearInterval(min)
                 isplay=false;
                 isreset=false;
+                bg.classList.remove("animation");
                 }
          togglebutton();
         }
@@ -100,14 +105,18 @@
             lis.setAttribute("class","lap-time")
             n.setAttribute("class","num")
             ts.setAttribute("class","time-stamp")
-
-            ts.innerHTML= "00" + " : " +  mntcnt + " : "  + seccnt + " : "  + millicnt;
+            ts.innerHTML= "0" + " : " +  mntcnt + " : "  + seccnt + " : "  + millicnt;
             lis.append(n, ts);
             laps.append(lis);
+        }
+        const clearall = () =>{
+            laps.innerHTML= '';
+            laps.append(clearbutton);
         }
         playbutton.addEventListener("click",play);
         resetbutton.addEventListener("click",reset);
         lapbutton.addEventListener("click",lap);
+        clearbutton.addEventListener("click",clearall)
     </script>
 </body>
 </html>
