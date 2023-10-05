@@ -41,7 +41,7 @@
         const second=document.getElementsByClassName("sec")[0];
         const millisecond=document.getElementsByClassName("msec")[0];
         const laps=document.getElementsByClassName("laps")[0];
-        const bg=document.getElementsByClassName("outer_rect")[0];
+        const bgcolor=document.getElementsByClassName("outer_rect")[0];
         let isplay=false;
         let seccnt =0;
         let sec;
@@ -59,7 +59,7 @@
             if(!isplay && !isreset)
             {
                 playbutton.innerHTML="Pause";
-                bg.classList.add("animation");
+                bgcolor.classList.add("animation");
                 min=setInterval(() => {
                 mins.innerHTML=(++mntcnt);
             },60*1000);
@@ -85,7 +85,7 @@
                 clearInterval(min)
                 isplay=false;
                 isreset=false;
-                bg.classList.remove("animation");
+                bgcolor.classList.remove("animation");
                 }
          togglebutton();
         }
