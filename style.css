@@ -8,7 +8,7 @@
 .watch{
     justify-content: center;
     align-items: center;
-    margin-left: 163px;
+    margin-left: 123px;
 }
 body{
     font-family:'Times New Roman', Times, serif;
@@ -98,13 +98,13 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
 }
-.lap{
+.laps{
     color: white;
     list-style: none;
     height: 106px;
     padding: 30px 10px;
     overflow: auto;
-    width: 870x;
+    width: 450x;
     position: relative;
     height: 1;
 }
@@ -121,7 +121,7 @@ body{
 .lap::-webkit-scrollbar{
     display:none;
 }
-.clear-button{
+.lap-clear-button{
     position: fixed;
     display: block;
     z-index: 1000;

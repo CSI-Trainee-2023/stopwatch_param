@@ -28,40 +28,8 @@
             </div>
         </div>
         <br>
-        <ul class="lap">
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <li class="lap-time">
-                <span class="num">1-</span>
-                <span class="time-stamp">00 00 00 00</span>
-            </li>
-            <button class="clear-button">Clear All</button>
+        <ul class="laps">
+            <button class="lap-clear-button">Clear All</button>
         </ul>
     </div>
     <script>
@@ -71,6 +39,7 @@
         const mins=document.getElementsByClassName("minute")[0];
         const second=document.getElementsByClassName("sec")[0];
         const millisecond=document.getElementsByClassName("msec")[0];
+        const laps=document.getElementsByClassName("laps")[0];
         let isplay=false;
         let seccnt =0;
         let sec;
@@ -92,7 +61,7 @@
             },60*1000);
                 sec=setInterval(() => {
                     if(seccnt===60){
-                        secct=0;
+                        seccnt=0;
                     }
                 second.innerHTML=(++seccnt);
             }, 1000);
@@ -124,8 +93,21 @@
             millisecond.innerHTML='00 '
             mins.innerHTML='00 ';
         }
+        const lap =() =>{
+            const lis=document.createElement("lis");
+            const n=document.createElement("span");
+            const ts= document.createElement("span")
+            lis.setAttribute("class","lap-time")
+            n.setAttribute("class","num")
+            ts.setAttribute("class","time-stamp")
+
+            ts.innerHTML= "00" + " : " +  mntcnt + " : "  + seccnt + " : "  + millicnt;
+            lis.append(n, ts);
+            laps.append(lis);
+        }
         playbutton.addEventListener("click",play);
         resetbutton.addEventListener("click",reset);
+        lapbutton.addEventListener("click",lap);
     </script>
 </body>
 </html>
