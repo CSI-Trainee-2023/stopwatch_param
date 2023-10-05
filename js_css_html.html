@@ -15,19 +15,72 @@
                     <span class="st hour">h</span>
                     <span class="st minutes">&nbsp;00</span>   
                     <span class="st minute">m</span>
-                    <span class="st seconds">&nbsp;00</span> 
-                    <span class="st second">s</span> 
+                    <span class="st second">&nbsp;00</span> 
+                    <span class="st seconds">s</span> 
                     <span class="st millisecs">&nbsp;00</span>  
                     <span class="st millisec">ms</span> 
                 </div>
             </div>
-            <br>
-            <br>
             <div id="button-click">
-                <button class="button">Start</button>
-                <button class="button">Lap</button>
+                <button class="button start">Start</button>
+                <button class="button stop hide">Lap</button>
             </div>
         </div>
+        <br>
+        <ul class="lap">
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <button class="clear-button">Clear All</button>
+        </ul>
     </div>
+    <script>
+        const startbutton=document.getElementsByClassName("start")[0];
+        const lapbutton=document.getElementsByClassName("stop")[0];
+        let isstart=false;
+        let seccount =0;
+        let sec;
+        const togglebutton= () =>{
+            lapbutton.classList.remove("hide")
+        }
+        const start = () =>{
+            if(!isstart)
+            {
+                startbutton.innerHTML="STOP";
+                sec=setInterval(() => {
+                second.innerHTML='$(seccount++) :';
+            }, 1000);
+                isstart=true;
+            }
+            else{
+                startbutton.innerHTML='START';
+                clearInterval(sec)
+                isstart=false;
+            }
+         togglebutton();
+        }
+        startbutton.addEventListener("click",start);
+    </script>
 </body>
 </html>

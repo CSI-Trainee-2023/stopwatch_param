@@ -3,6 +3,7 @@
     padding: 0px;
     align-items: center;
     box-sizing: border-box;
+    outline: none;
 }
 body{
     font-family:'Times New Roman', Times, serif;
@@ -13,10 +14,10 @@ body{
     width: 100%;
     height: 100%;
     font-size: medium;
-    margin-top: 130px;
+    margin-top: 55px;
 }
 .outer_rect{
-    width: 870px;
+    width: 900px;
     height: 250px;
     background-color: white;
     display: flex;
@@ -25,7 +26,7 @@ body{
 }
 .inner_rect{
     height: 230px;
-    width: 850px;
+    width: 880px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -74,11 +75,11 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
 }
-.seconds{
+.second{
     font-size: 106px;
     font-family: 'Times New Roman', Times, serif;
 }
-.second{
+.seconds{
     font-size: 75px;
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
@@ -91,4 +92,58 @@ body{
     font-size: 75px;
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
+}
+.lap{
+    color: white;
+    list-style: none;
+    height: 106px;
+    padding: 30px 10px;
+    overflow: auto;
+    width: 870x;
+    position: relative;
+    height: 1;
+}
+.lap-time{
+    display: inline-block;
+    text-align: center;
+    border-radius: 55px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #FB8604;
+    border-radius: 50px ;
+    margin-bottom: 16px;
+}
+.lap::-webkit-scrollbar{
+    display:none;
+}
+.clear-button{
+    position: fixed;
+    display: inline-block;
+    z-index: 1000;
+    width: 130px;
+    bottom: 5px;
+    padding: 10px 10px;
+    left: 50%;
+    transform: translate(-48%);
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid #FB8604;
+    border-radius: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.num{
+    color: azure;
+    font-size: large;
+}
+.time-stamp{
+    display: inline-block;
+    margin-left: 22px;
+    font-size: large;
+}
+.button:hover{
+    background-color: white;
+    color :black;
+}
+.hide{
+    visibility: hidden;
 }
