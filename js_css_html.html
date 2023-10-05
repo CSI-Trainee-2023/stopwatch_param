@@ -11,19 +11,20 @@
         <div class="watch">
             <div class="outer_rect">
                 <div class="inner_rect">       
-                    <span class="st hours">00</span>   
-                    <span class="st hour">h</span>
-                    <span class="st minutes">&nbsp;00</span>   
-                    <span class="st minute">m</span>
-                    <span class="st second">&nbsp;00</span> 
-                    <span class="st seconds">s</span> 
-                    <span class="st millisecs">&nbsp;00</span>  
-                    <span class="st millisec">ms</span> 
+                    <span class="st hour">00</span>   
+                    <span class="st hours">h&nbsp;</span>
+                    <span class="st minute">&nbsp;00</span>   
+                    <span class="st minutes">m&nbsp;</span>
+                    <span class="st sec">&nbsp;00</span> 
+                    <span class="st seconds">s&nbsp;</span> 
+                    <span class="st msec">&nbsp;00</span>  
+                    <span class="st millisec">ms&nbsp;</span> 
                 </div>
             </div>
             <div id="button-click">
-                <button class="button start">Start</button>
-                <button class="button stop hide">Lap</button>
+                <button class="button play">Play</button>
+                <button class="button reset hide">Reset</button>
+                <button class="button lap hide">Lap</button>
             </div>
         </div>
         <br>
@@ -52,35 +53,79 @@
                 <span class="num">1-</span>
                 <span class="time-stamp">00 00 00 00</span>
             </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
+            <li class="lap-time">
+                <span class="num">1-</span>
+                <span class="time-stamp">00 00 00 00</span>
+            </li>
             <button class="clear-button">Clear All</button>
         </ul>
     </div>
     <script>
-        const startbutton=document.getElementsByClassName("start")[0];
-        const lapbutton=document.getElementsByClassName("stop")[0];
-        let isstart=false;
-        let seccount =0;
+        const playbutton=document.getElementsByClassName("play")[0];
+        const lapbutton=document.getElementsByClassName("lap")[0];
+        const resetbutton=document.getElementsByClassName("reset")[0];
+        const mins=document.getElementsByClassName("minute")[0];
+        const second=document.getElementsByClassName("sec")[0];
+        const millisecond=document.getElementsByClassName("msec")[0];
+        let isplay=false;
+        let seccnt =0;
         let sec;
+        let millicnt=0;
+        let msecond;
+        let min;
+        let mntcnt=0;
+        let isreset=false;
         const togglebutton= () =>{
             lapbutton.classList.remove("hide")
+            resetbutton.classList.remove("hide")
         }
-        const start = () =>{
-            if(!isstart)
+        const play = () =>{
+            if(!isplay && !isreset)
             {
-                startbutton.innerHTML="STOP";
+                playbutton.innerHTML="Pause";
+                min=setInterval(() => {
+                mins.innerHTML=(++mntcnt);
+            },60*1000);
                 sec=setInterval(() => {
-                second.innerHTML='$(seccount++) :';
+                    if(seccnt===60){
+                        secct=0;
+                    }
+                second.innerHTML=(++seccnt);
             }, 1000);
-                isstart=true;
+            msecond=setInterval(() => {
+                if(millicnt===100){
+                    millicnt=0;
+                }
+                millisecond.innerHTML=(++millicnt);
+            }, 10);
+                isplay=true;
+                isreset=true;
             }
             else{
-                startbutton.innerHTML='START';
-                clearInterval(sec)
-                isstart=false;
-            }
+                playbutton.innerHTML='Play';
+                clearInterval(sec);
+                clearInterval(msecond);
+                clearInterval(min)
+                isplay=false;
+                isreset=false;
+                }
          togglebutton();
         }
-        startbutton.addEventListener("click",start);
+        const reset =() => {
+            isreset=true;
+            play()
+            lapbutton.classList.add("hide")
+            resetbutton.classList.add("hide")
+            second.innerHTML='00 '
+            millisecond.innerHTML='00 '
+            mins.innerHTML='00 ';
+        }
+        playbutton.addEventListener("click",play);
+        resetbutton.addEventListener("click",reset);
     </script>
 </body>
 </html>
