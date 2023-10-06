@@ -21,6 +21,7 @@ body{
     font-size: medium;
     margin-top: 55px;
 }
+/*Outer Rectangle css */
 .outer_rect{
     width: 900px;
     height: 250px;
@@ -29,6 +30,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+/*Inner Rectangle css */
 .inner_rect{
     height: 230px;
     width: 880px;
@@ -108,6 +110,7 @@ body{
     position: relative;
     height: 1;
 }
+/*Lap time css */
 .lap-time{
     display: inline-block;
     text-align: center;
@@ -121,6 +124,7 @@ body{
 .lap::-webkit-scrollbar{
     display:none;
 }
+/*Lap Clear CSS property */
 .lap-clear-button{
     position: fixed;
     display: block;
@@ -149,9 +153,11 @@ body{
     background-color: white;
     color :black;
 }
+/*Hiding the buttons */
 .hide{
     visibility: hidden;
 }
+/*Border Animation*/
 .animation{
     background: linear-gradient(-45deg, red, blue,#FF00FF,green,#00FF00, purple);
     background-size: 400% 400%;
@@ -168,3 +174,8 @@ body{
         background-position: 0% 50%;
     }
 }
+
+.show{
+    display: block;
+}
+
