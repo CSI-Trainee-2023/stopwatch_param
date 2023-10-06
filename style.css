@@ -48,6 +48,7 @@ body{
     justify-content: space-evenly;
     font-weight: bolder;
 }
+/*Button CSS */
 .button{
     height: 87px;
     width: 87px;
@@ -64,6 +65,7 @@ body{
     font-size: 43px;
     font-weight: bolder;
 }
+/*Individual CSS of clock*/
 .hour{
     font-size: 106px;
     font-family: 'Times New Roman', Times, serif;
@@ -73,6 +75,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
 }
+/*Individual CSS of clock*/
 .minute{
     font-size: 106px;
     font-family: 'Times New Roman', Times, serif;
@@ -82,6 +85,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
 }
+/*Individual CSS of clock*/
 .sec{
     font-size: 106px;
     font-family: 'Times New Roman', Times, serif;
@@ -91,6 +95,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: #FB8604;
 }
+/*Individual CSS of clock*/
 .msec{
     font-size: 106px;
     font-family: 'Times New Roman', Times, serif;
@@ -173,9 +178,5 @@ body{
     100%{
         background-position: 0% 50%;
     }
-}
-
-.show{
-    display: block;
 }
 

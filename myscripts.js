@@ -7,6 +7,7 @@ const playbutton=document.getElementsByClassName("play")[0];
         const millisecond=document.getElementsByClassName("msec")[0];
         const laps=document.getElementsByClassName("laps")[0];
         const bgcolor=document.getElementsByClassName("outer_rect")[0];
+        /*Defining necessary variables for counting minutes,seconds & milliseconds*/
         let isplay=false;
         let seccnt =0;
         let sec;
@@ -15,14 +16,25 @@ const playbutton=document.getElementsByClassName("play")[0];
         let min;
         let mntcnt=0;
         let li=0;
+        let f=0;
         let isreset=false;
-        const togglebutton= () =>{
-            lapbutton.classList.remove("hide")
-            resetbutton.classList.remove("hide")
+        /*Toggle button funtioning*/
+        const togglebutton= (event) =>{
+            if( f== 0){
+                lapbutton.classList.remove("hide")
+                resetbutton.classList.add('hide')
+            }
+            if ( f== 1 ){
+                lapbutton.classList.add('hide')
+                resetbutton.classList.remove('hide')
+            }
+
         }
+        /*Defining function of play algorithm*/
         const play = () =>{
             if(!isplay && !isreset)
             {
+                f = 0;
                 playbutton.innerHTML="Pause";
                 bgcolor.classList.add("animation");
                 min=setInterval(() => {
@@ -50,10 +62,12 @@ const playbutton=document.getElementsByClassName("play")[0];
                 clearInterval(min)
                 isplay=false;
                 isreset=false;
+                f= 1;
                 bgcolor.classList.remove("animation");
                 }
          togglebutton();
         }
+        /*Defining function of reset algorithm*/
         const reset =() => {
             isreset=true;
             play()
@@ -63,6 +77,7 @@ const playbutton=document.getElementsByClassName("play")[0];
             millisecond.innerHTML='00 '
             mins.innerHTML='00 ';
         }
+        /*Defining function of lap algorithm*/
         const lap =() =>{
             const lis=document.createElement("lis");
             const n=document.createElement("span");
@@ -75,15 +90,18 @@ const playbutton=document.getElementsByClassName("play")[0];
             lis.append(n, ts);
             laps.append(lis);
         }
+        /*Defining function of clear button algorithm*/
         const clearall = () =>{
             laps.innerHTML= '';
             laps.append(clearbutton);
         }
+        /*Defining function of keyboard operation */
         document.addEventListener("keydown",e=> {
+            e.preventDefault();
             if(e.key.toLowerCase()=="x"
             && e.ctrlKey)
         {
-            playbutton.innerHTML="Play";
+            
         }
         if(e.key.toLowerCase()=="r"
             && e.ctrlKey)
@@ -98,9 +116,10 @@ const playbutton=document.getElementsByClassName("play")[0];
         if(e.key.toLowerCase()=="p"
             && e.ctrlKey)
         {
-            playbutton.innerHTML="resume";
+            togglebutton.event();
         }
     });
+       /*Defining function of event listener algorithm*/
         playbutton.addEventListener("click",play);
         resetbutton.addEventListener("click",reset);
         lapbutton.addEventListener("click",lap);
